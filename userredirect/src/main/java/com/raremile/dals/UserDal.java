@@ -11,6 +11,13 @@ import com.raremile.common.DatabaseManager;
 import com.raremile.entities.User;
 import com.raremile.exception.DatabaseException;
 
+/**
+ * DAL to read from the User table.
+ * 
+ * @author AnujD
+ *
+ */
+
 public class UserDal {
 	static {
 		// Load the driver
@@ -25,6 +32,13 @@ public class UserDal {
 	private static final Logger LOG = Logger
 			.getLogger(com.raremile.dals.UserDal.class);
 
+	/**
+	 * Method to return the User with the inputted username and password.
+	 * 
+	 * @param userId
+	 * @return
+	 * @throws DatabaseException
+	 */
 	public User getUser(String userName, String userPassword)
 			throws DatabaseException {
 		CON = DatabaseManager.getConnection();
@@ -35,6 +49,7 @@ public class UserDal {
 			PSTMT.setString(1, userName);
 			PSTMT.setString(2, userPassword);
 			result = PSTMT.executeQuery();
+			// Checking if user found.
 			if (result.first()) {
 				LOG.info("User has been found.");
 				resultUser.setUserId(result.getInt("USER_ID"));

@@ -10,13 +10,14 @@
 </head>
 <body>
 	<p>${username}</p>
+	<p>${message}</p>
 	<c:choose>
 		<c:when test="${roles=='No roles found.'}">
 		${roles} 
 		</c:when>
 		<c:otherwise>
 			<c:forEach var="role" items="${roles}">
-		 ${role.userRole}<br>
+		 ${ role.userRole}<br>
 			</c:forEach>
 		</c:otherwise>
 	</c:choose>

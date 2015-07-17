@@ -13,6 +13,11 @@ import com.raremile.common.DatabaseManager;
 import com.raremile.entities.UserProfile;
 import com.raremile.exception.DatabaseException;
 
+/**
+ * DAL to read from the User Profile table.
+ * @author AnujD
+ *
+ */
 public class UserProfileDal {
 	static {
 		// Load the driver
@@ -27,6 +32,13 @@ public class UserProfileDal {
 	private static final Logger LOG = Logger
 			.getLogger(com.raremile.dals.UserProfileDal.class);
 
+	/**
+	 * Method to return the User profiles that a particular user may have.
+	 * 
+	 * @param userId
+	 * @return
+	 * @throws DatabaseException
+	 */
 	public List<UserProfile> getUserProfile(int userId)
 			throws DatabaseException {
 		CON = DatabaseManager.getConnection();
